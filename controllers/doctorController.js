@@ -29,7 +29,7 @@ exports.login = async (req, res) => {
         if (!passwordIsValid) return res.status(401).send({ auth: false, token: null });
 
         const token = jwt.sign({ id: doctor.id, role: doctor.role }, 'esha', { expiresIn: '1hr' }); // Include role in the token
-        res.status(200).send({ auth: true, token });
+        res.status(200).send({ auth: true, token, id:doctor.id});
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

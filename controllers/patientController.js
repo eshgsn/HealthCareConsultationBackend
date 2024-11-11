@@ -26,7 +26,7 @@ exports.login = async (req, res) => {
         if (!passwordIsValid) return res.status(401).send({ auth: false, token: null });
 
         const token = jwt.sign({ id: patient.id, role: patient.role }, 'esha', { expiresIn: '1hr' });
-        res.status(200).send({ auth: true, token });
+        res.status(200).send({ auth: true, token,id: patient.id });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
