@@ -11,7 +11,7 @@ exports.register = async (req, res) => {
             password: hashedPassword,
             role: req.body.role,
         });
-        res.status(201).json({ message: 'Patient registered successfully', patient });
+        res.status(201).json({ message: 'Patient registered', patient });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -25,7 +25,7 @@ exports.login = async (req, res) => {
         const passwordIsValid = bcrypt.compareSync(req.body.password, patient.password);
         if (!passwordIsValid) return res.status(401).send({ auth: false, token: null });
 
-        const token = jwt.sign({ id: patient.id, role: patient.role }, 'Amit_Kumar_Vishnu', { expiresIn: '1hr' });
+        const token = jwt.sign({ id: patient.id, role: patient.role }, 'esha', { expiresIn: '1hr' });
         res.status(200).send({ auth: true, token });
     } catch (error) {
         res.status(500).json({ error: error.message });

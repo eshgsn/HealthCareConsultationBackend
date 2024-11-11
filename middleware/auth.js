@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
-const your_jwt_secret = 'Amit_Kumar_Vishnu'; 
+const your_jwt_secret = 'esha'; 
 
-const verifyToken = (req, res, next) => {
+const verify = (req, res, next) => {
   // console.log('Req', req.headers);
   const token = req.headers['authorization'];
 
@@ -14,9 +14,9 @@ const verifyToken = (req, res, next) => {
     if (err) return res.status(500).send({ message: `${err}` });
 
     req.userId = decoded.id;
-    req.role = decoded.role; 
+    req.role = decoded.role;
     next();
   });
 };
 
-module.exports = verifyToken;
+module.exports = verify;

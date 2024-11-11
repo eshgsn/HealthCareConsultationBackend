@@ -28,11 +28,21 @@ exports.login = async (req, res) => {
         const passwordIsValid = bcrypt.compareSync(req.body.password, doctor.password);
         if (!passwordIsValid) return res.status(401).send({ auth: false, token: null });
 
-        const token = jwt.sign({ id: doctor.id, role: doctor.role }, 'Amit_Kumar_Vishnu', { expiresIn: '1hr' }); // Include role in the token
+        const token = jwt.sign({ id: doctor.id, role: doctor.role }, 'esha', { expiresIn: '1hr' }); // Include role in the token
         res.status(200).send({ auth: true, token });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 };
 
+
+
+exports.getAllDoctors = async (req, res) => {
+    try {
+        const doctors = await Doctor.findAll();
+        res.status(200).json(doctors);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
 
