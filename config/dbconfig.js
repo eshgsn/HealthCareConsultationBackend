@@ -3,7 +3,8 @@ const { Sequelize } = require('sequelize');
 
 const sequelize = new Sequelize('healthcare_db', 'root', 'smart@2099', {
   host: 'localhost',
-  dialect: 'mysql'
+  dialect: 'mysql',
+  logging:false,
 });
 
 const connectDB = async () => {
