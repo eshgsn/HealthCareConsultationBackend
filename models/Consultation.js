@@ -1,3 +1,4 @@
+// consultation
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/dbconfig');
 const Patient = require('./Patient');

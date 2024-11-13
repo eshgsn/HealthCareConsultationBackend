@@ -1,3 +1,4 @@
+// middleware/auth
 const jwt = require('jsonwebtoken');
 const your_jwt_secret = 'esha'; 
 

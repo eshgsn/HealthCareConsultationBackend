@@ -1,3 +1,4 @@
+//consultationcontroller
 const ConsultationRequest = require('../models/Consultation');
 
 exports.createRequest = async (req, res) => {

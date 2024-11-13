@@ -1,3 +1,4 @@
+// patient
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/dbconfig');
 
@@ -18,8 +19,15 @@ const Patient = sequelize.define('Patient', {
   role: { 
     type: DataTypes.STRING,
     allowNull: false,
-  }
- 
+  },
+  is_verified: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false,
+}, 
+  verifiedtoken: {
+  type: DataTypes.STRING,
+
+},
 });
 
 module.exports = Patient;

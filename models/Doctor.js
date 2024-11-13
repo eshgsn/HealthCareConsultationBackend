@@ -1,3 +1,4 @@
+// Doctor
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../config/dbconfig');
 
@@ -31,6 +32,15 @@ const Doctor = sequelize.define('Doctor', {
     type: DataTypes.TIME,
     allowNull: false,
   },
+  is_verified: {
+    type: DataTypes.BOOLEAN,
+    defaultValue: false, 
+  },
+  verifiedtoken: {
+    type: DataTypes.STRING,
+
+  },
+
 });
 
 module.exports = Doctor;
