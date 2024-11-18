@@ -23,11 +23,10 @@ const Patient = sequelize.define('Patient', {
   is_verified: {
     type: DataTypes.BOOLEAN,
     defaultValue: false,
-}, 
+  }, 
   verifiedtoken: {
   type: DataTypes.STRING,
-
-},
+  },
 });
 
 module.exports = Patient;
