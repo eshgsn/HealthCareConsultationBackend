@@ -38,13 +38,19 @@ exports.register = async (req, res) => {
         });
 
         // Generate a verification token here if needed
-        const token = jwt.sign({ id: doctor.id, role: doctor.role }, 'esha', { expiresIn: '1hr' });
+        const payload = {id: doctor.id, role: 'doctor'}
+        const token = jwt.sign(payload, 'esha', { expiresIn: '1hr' });
+        // console.log(token);
         
         // Send verification email
         await sendVerificationEmail(doctor.email, token, doctor.role);
-        //const user = await Doctor.update({verifiedtoken : token}, {where : {email}})
+        // await sendVerificationEmail(doctor.email, token, doctor);
+
+        // const user = await Doctor.update({verifiedtoken : token}, {where : {email}})
 
         res.status(201).json({ message: 'Doctor registered, verification email sent', doctor });
+        // console.log(doctor)
+        // localStorage.setItem('role', doctor.role);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -76,6 +82,8 @@ exports.getAllDoctors = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+
+
 exports.verifyEmail = async (req, res) => {
     const token = req.params.token;  // Get token from the URL path
     
@@ -86,7 +94,7 @@ exports.verifyEmail = async (req, res) => {
     try {
       // Verify the token
       const decoded = jwt.verify(token, 'esha');
-      const id = decoded.id;
+      const {id, role} = decoded;
   
       // Update user record to mark email as verified and clear the token
       const [updatedRows] = await Doctor.update(

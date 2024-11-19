@@ -22,7 +22,7 @@ const sendVerificationEmail = async (email, token, role) => {
         to: email,
         subject: 'Email Verification',
         text: `Please verify your email by clicking on the following link: ${verificationUrl}`,
-        html: `<p>Please verify your email by clicking on the following link: <a href="${verificationUrl}">${verificationUrl}</a></p>`,
+        html: `<p>Please verify your email by clicking on the following link:</p> <a href="${verificationUrl}">verify email</a>`,
     };
 
     try {
@@ -35,7 +35,7 @@ const sendVerificationEmail = async (email, token, role) => {
             await Patient.update({verifiedtoken: token}, {where: {email}});
         }
 
-        console.log(`Verification email sent to ${email}`);
+        // console.log(`Verification email sent to ${email}`);
     } catch (error) {
         console.error(`Error sending email: ${error.message}`);
     }

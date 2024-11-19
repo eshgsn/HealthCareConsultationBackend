@@ -14,4 +14,6 @@ router.get('/verify-email/:token', doctorController.verifyEmail);
 // Add the verify email route
 //router.get('/verify-email', doctorController.verifyEmail);
 
+
+
 module.exports = router;

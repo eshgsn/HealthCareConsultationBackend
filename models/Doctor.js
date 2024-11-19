@@ -38,7 +38,6 @@ const Doctor = sequelize.define('Doctor', {
   },
   verifiedtoken: {
     type: DataTypes.STRING,
-
   },
 
 });
