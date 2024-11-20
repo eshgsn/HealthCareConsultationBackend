@@ -13,7 +13,7 @@ const TimeSlot = sequelize.define('TimeSlot', {
     onDelete: 'CASCADE', // Deletes time slots if the doctor is deleted
   },
   date: {
-    type: DataTypes.DATEONLY, // Use DATEONLY for dates without time
+    type: DataTypes.DATEONLY, 
     allowNull: false,
   },
   startTime: { 
