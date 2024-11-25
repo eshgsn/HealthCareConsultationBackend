@@ -231,43 +231,4 @@ exports.verifyEmail = async (req, res) => {
     }
   };
   
-  
-
-
-// // Import bcrypt, the Doctor model, JWT, and the sendVerificationEmail function
-// const bcrypt = require('bcryptjs');
-// const Doctor = require('../models/Doctor');
-// const jwt = require('jsonwebtoken');
-// const sendVerificationEmail = require('../mail/email'); // Import sendVerificationEmail
-
-// // Register API for doctor
-// exports.register = async (req, res) => {
-//     try {
-//         // Hash the password using bcrypt
-//         const hashedPassword = bcrypt.hashSync(req.body.password, 8);
-
-//         // Create a new doctor entry in the database
-//         const doctor = await Doctor.create({
-//             name: req.body.name,
-//             specialization: req.body.specialization,
-//             email: req.body.email,
-//             password: hashedPassword,
-//             role: req.body.role, 
-//             availability_Start: req.body.availability_Start, 
-//             availability_End: req.body.availability_End, 
-//         });
-
-//         // Generate an email verification token using JWT
-//         const verificationToken = jwt.sign({ id: doctor.id, email: doctor.email }, 'your_jwt_secret_key', { expiresIn: '1d' });
-
-//         // Send the verification email with the generated token
-//         await sendVerificationEmail(doctor.email, verificationToken);
-
-//         // Send a success response back to the client
-//         res.status(201).json({ message: 'Doctor registered successfully. Please check your email to verify your account.', doctor });
-//     } catch (error) {
-//         // Handle any errors and send error response
-//         res.status(500).json({ error: error.message });
-//     }
-// };
-
+ 

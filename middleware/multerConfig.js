@@ -34,4 +34,10 @@ const upload = multer({
   });
   
 
-module.exports = upload
+// module.exports = upload
+
+// Updated to export both single and multiple file upload configurations
+module.exports = {
+  uploadSingle: upload.single('image'),
+  uploadMultiple: upload.array('images', 5), // Allow up to 5 images per request
+};
