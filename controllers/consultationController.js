@@ -3,8 +3,6 @@ const ConsultationRequest = require('../models/Consultation');
 const Patient = require('../models/Patient'); 
 
 
-
-
 // exports.createRequest = async (req, res) => {
 //     try {
 //         if (req.role !== 'patient') {
@@ -30,7 +28,6 @@ exports.createRequest = async (req, res) => {
         if (req.role !== 'patient') {
             return res.status(403).json({ message: 'Only patients can create a request.' });
         }
-
         // Handle multiple image uploads
         const imagePaths = req.files.map(file => file.path);
 
