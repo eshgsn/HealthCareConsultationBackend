@@ -52,6 +52,7 @@ const patientRoutes = require('./routes/patientroutes');
 const doctorRoutes = require('./routes/doctorroutes'); 
 const consultationRoutes = require('./routes/consultationroutes');
 const timeslotroutes = require('./routes/timeslotroutes');
+const chatroutes = require('./routes/chatroutes')
 
 const app = express();
 const PORT = 5000;
@@ -66,6 +67,7 @@ app.use('/patients', patientRoutes);
 app.use('/doctors', doctorRoutes);
 app.use('/consultations', consultationRoutes);
 app.use('/api/time-slots', timeslotroutes);
+app.use('/chat', chatroutes);
 
 // Create HTTP server and bind Socket.IO
 const httpServer = createServer(app);

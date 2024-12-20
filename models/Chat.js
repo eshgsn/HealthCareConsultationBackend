@@ -2,10 +2,6 @@ const { DataTypes } = require('sequelize');
 const {sequelize } = require('../config/dbconfig'); 
 
 const Chat = sequelize.define('Chat', {
-  id: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-  },
   roomId: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -31,7 +27,7 @@ const Chat = sequelize.define('Chat', {
   timestamps: false,
   indexes: [
     {
-      unique: false, // Can be true if you want to enforce unique roomId
+      unique: false, 
       fields: ['roomId'],
     }
   ],

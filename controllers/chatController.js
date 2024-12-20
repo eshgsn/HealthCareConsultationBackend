@@ -37,6 +37,7 @@ const saveChatMessage = async (req, res) => {
       senderId,
       receiverId,
       message,
+      timestamp,
     });
 
     res.status(201).json({
